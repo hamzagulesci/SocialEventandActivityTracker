@@ -249,8 +249,8 @@ social-event-tracker/
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/social-event-tracker.git
-cd social-event-tracker
+git clone https://github.com/hamzagulesci/SocialEventandActivityTracker/
+cd SocialEventandActivityTracker
 
 # Install dependencies
 npm install
