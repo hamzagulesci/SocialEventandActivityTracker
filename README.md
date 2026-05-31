@@ -312,24 +312,6 @@ node seed.js
 
 ---
 
-## Screenshots
-
-> Add screenshots of the homepage, events listing, event detail, and admin dashboard here after running the application.
-
----
-
-## Contributing
-
-Contributions are welcome! To get started:
-
-1. Fork the repository
-2. Create a new branch: `git checkout -b feature/your-feature-name`
-3. Commit your changes: `git commit -m "Add: your feature description"`
-4. Push to your branch: `git push origin feature/your-feature-name`
-5. Open a Pull Request
-
----
-
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
