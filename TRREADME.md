@@ -249,8 +249,8 @@ sosyal-etkinlik-takipcisi/
 
 ```bash
 # Depoyu klonlayın
-git clone https://github.com/your-username/social-event-tracker.git
-cd social-event-tracker
+git clone https://github.com/hamzagulesci/SocialEventandActivityTracker/
+cd SocialEventandActivityTracker
 
 # Bağımlılıkları yükleyin
 npm install
@@ -309,24 +309,6 @@ node seed.js
 | ayse@gmail.com | Ayse12345. | Kullanıcı |
 
 **Dahil edilen örnek etkinlik kategorileri:** Rock Konseri, Caz Festivali, Yoga Atölyesi, Kitap Fuarı, Teknoloji Zirvesi, Doğa Yürüyüşü, Tiyatro Gösterisi, Stand-up Komedi, Fotoğrafçılık Atölyesi, Sokak Lezzetleri Festivali, Sanat Sergisi ve daha fazlası.
-
----
-
-## Ekran Görüntüleri
-
-> Uygulamayı çalıştırdıktan sonra ana sayfa, etkinlikler listeleme, etkinlik detayı ve admin paneli ekran görüntülerini buraya ekleyebilirsiniz.
-
----
-
-## Katkıda Bulunma
-
-Katkılarınızı bekliyoruz! Başlamak için:
-
-1. Depoyu forklayın
-2. Yeni bir dal oluşturun: `git checkout -b ozellik/ozellik-adiniz`
-3. Değişikliklerinizi işleyin: `git commit -m "Ekle: özellik açıklamanız"`
-4. Dalınıza itin: `git push origin ozellik/ozellik-adiniz`
-5. Bir Pull Request açın
 
 ---
 
