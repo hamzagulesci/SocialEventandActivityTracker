@@ -263,7 +263,7 @@ Proje kök dizininde aşağıdaki içeriğe sahip bir `.env` dosyası oluşturun
 ```env
 PORT=5000
 MONGO_URI=mongodb://localhost:27017/etkinlik-takipcisi?retryWrites=true&w=majority
-JWT_SECRET=buraya_gizli_anahtarinizi_yazin
+JWT_SECRET=etkinlik_takipcisi_jwt_secret_key
 ```
 
 ### Uygulamayı Çalıştırma
@@ -304,9 +304,9 @@ node seed.js
 
 | E-Posta | Şifre | Rol |
 |---------|-------|-----|
-| hamza@gmail.com | 123456 | Sahip |
-| selin@gmail.com | 123456 | Admin |
-| ayse@gmail.com | 123456 | Kullanıcı |
+| hamza@gmail.com | Hamza12345. | Sahip |
+| selin@gmail.com | Selin12345. | Admin |
+| ayse@gmail.com | Ayse12345. | Kullanıcı |
 
 **Dahil edilen örnek etkinlik kategorileri:** Rock Konseri, Caz Festivali, Yoga Atölyesi, Kitap Fuarı, Teknoloji Zirvesi, Doğa Yürüyüşü, Tiyatro Gösterisi, Stand-up Komedi, Fotoğrafçılık Atölyesi, Sokak Lezzetleri Festivali, Sanat Sergisi ve daha fazlası.
 

@@ -263,7 +263,7 @@ Create a `.env` file in the project root with the following content:
 ```env
 PORT=5000
 MONGO_URI=mongodb://localhost:27017/etkinlik-takipcisi?retryWrites=true&w=majority
-JWT_SECRET=your_secret_key_here
+JWT_SECRET=etkinlik_takipcisi_jwt_secret_key
 ```
 
 ### Running the Application
@@ -304,9 +304,9 @@ node seed.js
 
 | Email | Password | Role |
 |-------|----------|------|
-| hamza@gmail.com | 123456 | Owner |
-| selin@gmail.com | 123456 | Admin |
-| ayse@gmail.com | 123456 | User |
+| hamza@gmail.com | Hamza12345. | Owner |
+| selin@gmail.com | Selin12345. | Admin |
+| ayse@gmail.com | Ayse12345. | User |
 
 **Sample event categories included:** Rock Concert, Jazz Festival, Yoga Workshop, Book Fair, Tech Summit, Nature Walk, Theater Show, Stand-up Comedy, Photography Workshop, Street Food Festival, Art Exhibition, and more.
 

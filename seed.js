@@ -11,7 +11,7 @@ const users = [
   {
     name: 'Hamza Güleşci',
     email: 'hamza@gmail.com',
-    password: 'Enzo12345.',
+    password: 'Hamza12345.',
     avatar: 'avatar/avatar_01.png',
     isAdmin: 2
   },
