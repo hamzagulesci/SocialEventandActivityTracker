@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <!-- Sayfa karakter seti ve görünüm ayarları -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sayfa başlığı - tarayıcı sekmesinde görünür -->
+    <title>Sosyal Etkinlik ve Aktivite Takipçisi</title>
+    <!-- Font Awesome - İkonlar için -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tüm sayfalar için ortak CSS dosyası -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Sayfa Başlığı - Navigasyon Menüsü -->
+    <div id="header-placeholder"></div>
+
+    <!-- Ana Tanıtım Bölümü - Kullanıcıları karşılayan ilk bölüm -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <!-- Ana Başlık -->
+                <h1>Sosyal Etkinlikleri Keşfet ve Katıl</h1>
+                <!-- Kısa Açıklama -->
+                <p>Çevrenizdeki etkinlikleri keşfedin, katılın ve değerlendirin.</p>
+                <!-- Çağrı Düğmesi - Etkinlikler sayfasına yönlendirir -->
+                <a href="events.html" class="btn btn-large">Etkinlikleri Keşfet</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arama Bölümü - Etkinlikleri filtrelemek için -->
+    <section id="search">
+        <div class="container">
+            <div class="search-container">
+                <h2>Etkinlik Ara</h2>
+                <!-- Arama Formu - JavaScript ile işlenir, sayfa yüklenmez -->
+                <form id="search-form">
+                    <!-- Kategori Seçimi -->
+                    <div class="form-group">
+                        <label for="category">Kategori</label>
+                        <select id="category" name="category">
+                            <option value="">Tüm Kategoriler</option>
+                            <option value="Konser">Konser</option>
+                            <option value="Festival">Festival</option>
+                            <option value="Spor">Spor</option>
+                            <option value="Sanat">Sanat</option>
+                            <option value="Eğitim">Eğitim</option>
+                            <option value="Diğer">Diğer</option>
+                        </select>
+                    </div>
+                    <!-- Şehir Arama Alanı - Otomatik tamamlama özelliği var -->
+                    <div class="form-group">
+                        <label for="location">Şehir</label>
+                        <input type="text" id="location" name="location" placeholder="Şehir adı girin" autocomplete="off">
+                        <!-- Öneriler Konteynerı - JavaScript ile doldurulur -->
+                        <div id="location-suggestions" class="suggestions-container"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Öne Çıkan Etkinlikler Bölümü - Ana sayfada gösterilen önemli etkinlikler -->
+    <section id="featured-events">
+        <div class="container">
+            <h2>Öne Çıkan Etkinlikler</h2>
+            <!-- Etkinlik Izgara Görünümü - JavaScript ile dinamik olarak doldurulur -->
+            <div class="events-grid" id="featured-events-grid">
+                <!-- Yükleme mesajı - Etkinlikler yüklenirken gösterilir -->
+                <div class="loading">Etkinlikler yükleniyor...</div>
+            </div>
+            <!-- Daha Fazla Etkinlik Bağlantısı -->
+            <div class="more-events-link">
+                <p>Daha fazla etkinlik görmek için <a href="events.html" class="btn btn-outline">Etkinlikler Sayfasına Git</a></p>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript Dosyaları -->
+    <!-- Kimlik Doğrulama İşlemleri için Script -->
+    <!-- Ana Sayfa İşlevleri için Script -->
+    <script src="js/auth.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

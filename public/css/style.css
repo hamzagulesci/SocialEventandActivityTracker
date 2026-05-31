@@ -1,0 +1,1202 @@
+/* ===============================================
+   ORTAK STILLER - TÜM SAYFALAR İÇİN
+   =============================================== */
+
+/* Değişkenler ve Renk Tanımları - Tüm sitede kullanılacak renk paletini tanımlıyoruz */
+:root {
+  --background-color: #FFFFFF; /* Arkaplan rengi - Sayfa arkaplanı için beyaz renk */
+  --primary-color: #4A6FDC;    /* Ana renk - Butonlar, başlıklar ve vurgular için mavi ton */
+  --accent-color: #5CB85C;     /* Vurgu rengi - Başarı mesajları ve ikincil vurgular için yeşil ton */
+  --text-color: #333333;       /* Metin rengi - Okunabilirlik için koyu gri */
+  --light-gray: #f4f4f4;       /* Açık gri - Arkaplan varyasyonları ve kenarlıklar için */
+  --medium-gray: #ddd;         /* Orta gri - Ayırıcılar ve kenarlıklar için */
+  --dark-gray: #888;           /* Koyu gri - İkincil metinler için */
+  --danger-color: #dc3545;     /* Tehlike/Hata rengi - Hata mesajları ve uyarılar için kırmızı ton */
+}
+
+/* Tüm elementler için temel sıfırlama - Tarayıcı varsayılan stillerini kaldırır */
+* {
+  margin: 0;          /* Dış boşlukları sıfırla */
+  padding: 0;         /* İç boşlukları sıfırla */
+  box-sizing: border-box; /* Genişlik hesaplamalarına padding ve border dahil et */
+}
+
+/* Sayfa gövdesi için temel stiller */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern ve okunabilir yazı tipi */
+  line-height: 1.6;                /* Satır yüksekliği - okunabilirlik için */
+  color: var(--text-color);        /* Metin rengi - değişkenden alınır */
+  background-color: var(--background-color); /* Arkaplan rengi - değişkenden alınır */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Footer'ı her zaman alta sabitlemek için tek içerik bölümü olan sayfalarda */
+.admin-container,
+#legal-content,
+#auth-form,
+#profile {
+  flex: 1;
+}
+
+/* Bağlantı (link) stilleri */
+a {
+  text-decoration: none;       /* Alt çizgiyi kaldır */
+  color: var(--primary-color); /* Bağlantı rengi - ana renkten alınır */
+}
+
+/* Liste stilleri */
+ul {
+  list-style: none; /* Liste işaretlerini kaldır */
+}
+
+/* İçerik kapsayıcısı - Tüm sayfalarda kullanılan ana kapsayıcı */
+.container {
+  max-width: 1200px; /* Maksimum genişlik - büyük ekranlarda içeriğin çok genişlememesi için */
+  margin: 0 auto;    /* Ortalama - sağdan ve soldan otomatik boşluk */
+  padding: 0 20px;   /* İç boşluk - içeriğin kenarlara yapışmaması için */
+}
+
+/* Buton temel stili - Tüm butonlar için ortak stil */
+.btn {
+  display: inline-block;           /* Blok element gibi davran ama satır içinde kal */
+  background: var(--primary-color); /* Arkaplan rengi - ana renkten alınır */
+  color: white;                    /* Metin rengi - beyaz */
+  padding: 10px 20px;              /* İç boşluk - üst/alt 10px, sağ/sol 20px */
+  border: none;                    /* Kenarlık yok */
+  border-radius: 5px;              /* Köşe yuvarlatma */
+  cursor: pointer;                 /* İmleç şekli - tıklanabilir göster */
+  font-size: 16px;                 /* Yazı boyutu */
+  transition: background 0.3s ease; /* Geçiş efekti - hover durumunda yumuşak geçiş */
+}
+
+/* Buton hover (üzerine gelindiğinde) durumu */
+.btn:hover {
+  background: #3a5fc0; /* Hover durumunda daha koyu mavi ton */
+}
+
+/* Çerçeveli buton stili */
+.btn-outline {
+  background: transparent;             /* Şeffaf arkaplan */
+  border: 1px solid var(--primary-color); /* Ana renkte 1px kenarlık */
+  color: var(--primary-color);         /* Metin rengi ana renk */
+}
+
+/* Çerçeveli buton hover durumu */
+.btn-outline:hover {
+  background: var(--primary-color); /* Hover durumunda arkaplan ana renk olur */
+  color: white;                    /* Metin rengi beyaza döner */
+}
+
+/* Başarı butonu stili - Olumlu aksiyonlar için yeşil buton */
+.btn-success {
+  background: var(--accent-color); /* Arkaplan vurgu rengi (yeşil) */
+}
+
+/* Başarı butonu hover durumu */
+.btn-success:hover {
+  background: #4a9d4a; /* Hover durumunda daha koyu yeşil ton */
+}
+
+/* Tehlike butonu stili - Silme, iptal gibi riskli işlemler için */
+.btn-danger {
+  background: var(--danger-color); /* Arkaplan tehlike rengi (kırmızı) */
+}
+
+/* Tehlike butonu hover durumu */
+.btn-danger:hover {
+  background: #bd2130; /* Hover durumunda daha koyu kırmızı ton */
+}
+
+/* Blok buton stili - Tam genişlikte buton */
+.btn-block {
+  display: block; /* Blok element olarak davran */
+  width: 100%;    /* Tam genişlik */
+}
+
+/* Büyük buton stili */
+.btn-large {
+  padding: 15px 30px; /* Daha fazla iç boşluk */
+  font-size: 18px;    /* Daha büyük yazı boyutu */
+}
+
+/* Gizli element stili - JavaScript ile görünürlük kontrolü için */
+.hidden {
+  display: none !important; /* Elementi tamamen gizle ve diğer stillerin ezmesini engelle */
+}
+
+/* Yükleniyor mesajı stili */
+.loading {
+  text-align: center;     /* Metni ortala */
+  padding: 20px;          /* İç boşluk */
+  font-style: italic;     /* İtalik yazı stili */
+  color: var(--dark-gray); /* Koyu gri renk */
+}
+
+/* Hata mesajı kutusu stili */
+.error {
+  background-color: #f8d7da; /* Açık kırmızı arkaplan */
+  color: #721c24;           /* Koyu kırmızı metin */
+  padding: 10px;            /* İç boşluk */
+  border-radius: 5px;       /* Köşe yuvarlatma */
+  margin-bottom: 20px;      /* Alt boşluk */
+}
+
+/* Başarı mesajı kutusu stili */
+.success {
+  background-color: #d4edda; /* Açık yeşil arkaplan */
+  color: #155724;           /* Koyu yeşil metin */
+  padding: 10px;            /* İç boşluk */
+  border-radius: 5px;       /* Köşe yuvarlatma */
+  margin-bottom: 20px;      /* Alt boşluk */
+}
+
+/* ===============================================
+   HEADER VE FOOTER STILLER
+   =============================================== */
+
+/* Header Bölümü - Tüm sayfalarda kullanılan üst menü */
+header {
+  background-color: white;             /* Beyaz arkaplan */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Gölge efekti - derinlik hissi için */
+  position: sticky;                   /* Yapışkan pozisyon - sayfa kaydırıldığında üstte kalır */
+  top: 0;                              /* Sayfanın en üstüne yapışır */
+  z-index: 100;                        /* Yığın sırası - diğer elementlerin üzerine çıkar */
+}
+
+/* Navbar kapsayıcısı */
+#navbar .container {
+  display: flex;                 /* Esnek kutu düzeni */
+  justify-content: space-between; /* İçerikleri iki uca dağıt */
+  align-items: center;           /* Dikey eksende ortala */
+  padding: 15px 20px;            /* İç boşluk - üst/alt 15px, sağ/sol 20px */
+}
+
+/* Logo stili */
+.logo a {
+  color: var(--primary-color); /* Logo rengi - ana renkten alınır */
+  font-size: 24px;            /* Büyük yazı boyutu */
+  font-weight: bold;          /* Kalın yazı */
+}
+
+/* Navigasyon menüsü bağlantıları */
+.nav-links {
+  display: flex;       /* Esnek kutu düzeni - yatay sıralama */
+  align-items: center; /* Dikey eksende ortala */
+}
+
+/* Navigasyon menüsü öğeleri */
+.nav-links li {
+  margin-left: 20px; /* Sol boşluk - öğeler arası mesafe */
+}
+
+/* Navigasyon menüsü bağlantıları */
+.nav-links a {
+  color: var(--text-color);      /* Metin rengi - değişkenden alınır */
+  font-weight: 500;             /* Yarı kalın yazı */
+  transition: color 0.3s ease;  /* Renk geçişi - hover durumunda yumuşak geçiş */
+}
+
+/* Navigasyon menüsü bağlantıları hover ve aktif durumu */
+.nav-links a:hover, .nav-links a.active {
+  color: var(--primary-color); /* Hover ve aktif durumda ana renk */
+}
+
+/* Hamburger menü ikonu - mobil görünüm için */
+.hamburger {
+  display: none;    /* Varsayılan olarak gizli, mobilde görünür */
+  cursor: pointer;  /* İmleç şekli - tıklanabilir göster */
+}
+
+/* Hamburger menü çubukları */
+.bar {
+  display: block;                  /* Blok element olarak göster */
+  width: 25px;                     /* Genişlik */
+  height: 3px;                     /* Yükseklik */
+  margin: 5px auto;                /* Çubuklar arası boşluk ve ortalama */
+  background-color: var(--text-color); /* Çubuk rengi - metin renginden alınır */
+  transition: all 0.3s ease;       /* Tüm özelliklerde geçiş efekti */
+}
+
+/* ===============================================
+   ANA SAYFA STİLLERİ (index.html)
+   =============================================== */
+
+/* Hero Bölümü - Ana Tanıtım Alanı - Sayfanın en üstündeki büyük görsel alan */
+#hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/random/1600x900/?event') no-repeat center center/cover; /* Karartılmış arkaplan görseli - Unsplash'ten rastgele etkinlik fotoğrafı */
+  height: 60vh;         /* Yükseklik - ekran yüksekliğinin %60'ı */
+  display: flex;        /* Esnek kutu düzeni */
+  align-items: center;  /* Dikey eksende ortala */
+  text-align: center;   /* Metni ortala */
+  color: white;         /* Metin rengi beyaz */
+}
+
+/* Hero içerik alanı */
+.hero-content {
+  max-width: 800px; /* Maksimum genişlik - içeriğin çok genişlememesi için */
+  margin: 0 auto;   /* Ortalama - sağdan ve soldan otomatik boşluk */
+}
+
+/* Hero başlığı */
+.hero-content h1 {
+  font-size: 3rem;      /* Büyük yazı boyutu - 48px */
+  margin-bottom: 20px;  /* Alt boşluk */
+}
+
+/* Hero açıklama metni */
+.hero-content p {
+  font-size: 1.2rem;    /* Yazı boyutu - 19.2px */
+  margin-bottom: 30px;  /* Alt boşluk */
+}
+
+/* Arama Bölümü - Etkinlik arama formu alanı */
+#search {
+  padding: 50px 0;                /* Üst ve alt boşluk */
+  background-color: var(--light-gray); /* Açık gri arkaplan */
+}
+
+/* Arama kutusu kapsayıcısı */
+.search-container {
+  max-width: 800px;                      /* Maksimum genişlik */
+  margin: 0 auto;                         /* Ortalama */
+  background: white;                      /* Beyaz arkaplan */
+  padding: 30px;                          /* İç boşluk */
+  border-radius: 10px;                    /* Köşe yuvarlatma */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+}
+
+/* Arama kutusu başlığı */
+.search-container h2 {
+  text-align: center;           /* Metni ortala */
+  margin-bottom: 20px;          /* Alt boşluk */
+  color: var(--primary-color);  /* Ana renk */
+}
+
+/* Arama ve filtreleme formu - Responsive grid yapısı */
+#search-form, #filter-form {
+  display: grid;                                      /* Grid düzeni */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Otomatik sığan sütunlar */
+  gap: 20px;                                         /* Hücreler arası boşluk */
+}
+
+/* Form grubu - Her bir form alanı için kapsayıcı */
+.form-group {
+  margin-bottom: 20px; /* Alt boşluk */
+}
+
+/* Form etiketi */
+.form-group label {
+  display: block;      /* Blok element olarak göster */
+  margin-bottom: 5px;  /* Alt boşluk */
+  font-weight: 500;    /* Yarı kalın yazı */
+}
+
+/* Form giriş alanları - input, select ve textarea */
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;                        /* Tam genişlik */
+  padding: 10px;                      /* İç boşluk */
+  border: 1px solid var(--medium-gray); /* Kenarlık */
+  border-radius: 5px;                 /* Köşe yuvarlatma */
+  font-size: 16px;                    /* Yazı boyutu */
+}
+
+/* Şifre giriş alanı kapsayıcısı - Göster/gizle butonu için */
+.password-input-container {
+  position: relative;  /* Göreceli pozisyon - içindeki mutlak konumlu elementler için */
+  display: flex;       /* Esnek kutu düzeni */
+  align-items: center; /* Dikey eksende ortala */
+}
+
+/* Şifre giriş alanı */
+.password-input-container input {
+  padding-right: 40px; /* Sağ boşluk - göster/gizle butonu için yer aç */
+}
+
+/* Şifre göster/gizle butonu */
+.toggle-password {
+  position: absolute;         /* Mutlak pozisyon - kapsayıcıya göre */
+  right: 10px;                /* Sağdan 10px uzaklık */
+  background: none;           /* Arkaplan yok */
+  border: none;               /* Kenarlık yok */
+  cursor: pointer;            /* İmleç şekli - tıklanabilir göster */
+  color: var(--text-color);   /* Metin rengi */
+  opacity: 0.7;               /* Yarı saydam */
+  transition: opacity 0.2s ease; /* Saydamlık geçişi */
+}
+
+/* Şifre göster/gizle butonu hover durumu */
+.toggle-password:hover {
+  opacity: 1;                 /* Tam opak - saydam değil */
+  color: var(--primary-color); /* Ana renk */
+}
+
+/* Çok satırlı metin alanı */
+.form-group textarea {
+  height: 100px;      /* Yükseklik */
+  resize: vertical;   /* Sadece dikey yönde boyutlandırılabilir */
+}
+
+/* Öne Çıkan Etkinlikler Bölümü - Ana sayfadaki önerilen etkinlikler */
+#featured-events, #all-events {
+  padding: 50px 0; /* Üst ve alt boşluk */
+}
+
+/* Etkinlik bölümü başlıkları */
+#featured-events h2, #all-events h2 {
+  text-align: center;          /* Metni ortala */
+  margin-bottom: 30px;         /* Alt boşluk */
+  color: var(--primary-color); /* Ana renk */
+}
+
+/* Daha fazla etkinlik bağlantısı alanı */
+.more-events-link {
+  text-align: center; /* Metni ortala */
+  margin-top: 40px;  /* Üst boşluk */
+}
+
+/* Daha fazla etkinlik metni */
+.more-events-link p {
+  font-size: 18px;         /* Yazı boyutu */
+  color: var(--text-color); /* Metin rengi */
+}
+
+/* Daha fazla etkinlik butonu */
+.more-events-link .btn {
+  margin-top: 10px;     /* Üst boşluk */
+  display: inline-block; /* Satır içi blok element */
+}
+
+/* Etkinlikler grid düzeni - Responsive kart yerleşimi */
+.events-grid {
+  display: grid;                                     /* Grid düzeni */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Otomatik dolan sütunlar */
+  gap: 30px;                                        /* Kartlar arası boşluk */
+}
+
+/* Etkinlik kartı - Her bir etkinlik için gösterilen kutu */
+.event-card {
+  background: white;                      /* Beyaz arkaplan */
+  border-radius: 10px;                    /* Köşe yuvarlatma */
+  overflow: hidden;                       /* Taşan içeriği gizle */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+  transition: transform 0.3s ease;       /* Dönüşüm geçişi - hover efekti için */
+}
+
+/* Etkinlik kartı hover durumu - Yükseltme efekti */
+.event-card:hover {
+  transform: translateY(-5px); /* 5px yukarı kaldır - hover durumunda */
+}
+
+/* Etkinlik görsel alanı */
+.event-image {
+  height: 200px;     /* Sabit yükseklik */
+  overflow: hidden;  /* Taşan içeriği gizle */
+}
+
+/* Etkinlik görseli */
+.event-image img {
+  width: 100%;                  /* Tam genişlik */
+  height: 100%;                 /* Tam yükseklik */
+  object-fit: cover;            /* Görseli kırpmadan sığdır */
+  transition: transform 0.3s ease; /* Dönüşüm geçişi - hover efekti için */
+}
+
+/* Etkinlik görseli hover durumu - Büyütme efekti */
+.event-card:hover .event-image img {
+  transform: scale(1.05); /* %5 büyüt - hover durumunda */
+}
+
+/* Etkinlik bilgi alanı */
+.event-info {
+  padding: 20px; /* İç boşluk */
+}
+
+/* Etkinlik başlığı */
+.event-info h3 {
+  margin-bottom: 10px;         /* Alt boşluk */
+  color: var(--primary-color); /* Ana renk */
+}
+
+/* Etkinlik meta bilgileri - Tarih, konum vb. */
+.event-meta {
+  display: flex;      /* Esnek kutu düzeni */
+  flex-wrap: wrap;    /* Gerektiğinde alt satıra geç */
+  margin-bottom: 15px; /* Alt boşluk */
+}
+
+/* Etkinlik meta bilgi metinleri */
+.event-meta p {
+  margin-right: 15px;       /* Sağ boşluk */
+  margin-bottom: 5px;       /* Alt boşluk */
+  font-size: 14px;          /* Küçük yazı boyutu */
+  color: var(--dark-gray);  /* Koyu gri renk */
+}
+
+/* Etkinlik meta ikonları */
+.event-meta i {
+  margin-right: 5px; /* Sağ boşluk - ikon ve metin arası */
+}
+
+/* Etkinlik açıklama metni */
+.event-description {
+  margin-bottom: 15px; /* Alt boşluk */
+  font-size: 15px;     /* Yazı boyutu */
+}
+
+/* ===============================================
+   ETKİNLİK DETAY SAYFASI STİLLERİ (event-detail.html)
+   =============================================== */
+
+/* Etkinlik Detay Başlık Bölümü - Sayfanın üst kısmı */
+#events-header, #event-detail {
+  background-color: var(--light-gray); /* Açık gri arkaplan */
+  padding: 50px 0;                    /* Üst ve alt boşluk */
+  text-align: center;                 /* Metni ortala */
+}
+
+/* Etkinlik içerik kapsayıcısı */
+#event-content {
+  max-width: 800px;                      /* Maksimum genişlik */
+  margin: 0 auto;                         /* Ortalama */
+  background: white;                      /* Beyaz arkaplan */
+  padding: 30px;                          /* İç boşluk */
+  border-radius: 10px;                    /* Köşe yuvarlatma */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+}
+
+/* Etkinlik detay görseli */
+.event-detail-image {
+  width: 100%;        /* Tam genişlik */
+  max-height: 400px;  /* Maksimum yükseklik */
+  object-fit: cover;  /* Görseli kırpmadan sığdır */
+  border-radius: 10px; /* Köşe yuvarlatma */
+  margin-bottom: 20px; /* Alt boşluk */
+}
+
+/* Etkinlik detay başlığı */
+.event-detail-info h1 {
+  color: var(--primary-color); /* Ana renk */
+  margin-bottom: 20px;        /* Alt boşluk */
+}
+
+/* Etkinlik detay meta bilgileri - Tarih, konum, katılımcı sayısı vb. */
+.event-detail-meta {
+  display: flex;       /* Esnek kutu düzeni */
+  flex-wrap: wrap;     /* Gerektiğinde alt satıra geç */
+  margin-bottom: 20px; /* Alt boşluk */
+}
+
+/* Etkinlik detay meta bilgi metinleri */
+.event-detail-meta p {
+  margin-right: 20px;      /* Sağ boşluk */
+  margin-bottom: 10px;     /* Alt boşluk */
+  font-size: 16px;         /* Yazı boyutu */
+  color: var(--dark-gray); /* Koyu gri renk */
+}
+
+/* Etkinlik detaylı açıklama metni */
+.event-detail-description {
+  margin-bottom: 30px; /* Alt boşluk */
+  line-height: 1.8;    /* Satır yüksekliği - okunabilirlik için */
+}
+
+/* Etkinlik katılımcıları ve yorumlar bölümü */
+#event-participants, #event-reviews {
+  padding: 50px 0; /* Üst ve alt boşluk */
+}
+
+/* Katılımcı bilgileri */
+.participant-info {
+  display: flex;           /* Esnek kutu düzeni */
+  justify-content: center; /* Yatay eksende ortala */
+  margin-bottom: 20px;     /* Alt boşluk */
+}
+
+/* Katılımcı bilgi metinleri */
+.participant-info p {
+  margin: 0 10px;  /* Sağ ve sol boşluk */
+  font-size: 18px; /* Yazı boyutu */
+}
+
+/* Etkinliğe katılma bölümü */
+#join-section {
+  text-align: center;  /* Metni ortala */
+  margin-bottom: 30px; /* Alt boşluk */
+}
+
+/* Katılım mesajı */
+#join-message {
+  margin-top: 10px; /* Üst boşluk */
+  font-weight: 500; /* Yarı kalın yazı */
+}
+
+/* Ortalama değerlendirme puanı */
+#average-rating {
+  text-align: center;  /* Metni ortala */
+  margin-bottom: 30px; /* Alt boşluk */
+  font-size: 18px;     /* Yazı boyutu */
+}
+
+/* Değerlendirme yıldızları */
+.rating-stars {
+  color: #ffc107; /* Sarı renk - yıldız rengi */
+}
+
+/* Yorum ekleme formu */
+#add-review {
+  max-width: 600px;                      /* Maksimum genişlik */
+  margin: 0 auto 40px;                    /* Ortalama ve alt boşluk */
+  background: white;                      /* Beyaz arkaplan */
+  padding: 20px;                          /* İç boşluk */
+  border-radius: 10px;                    /* Köşe yuvarlatma */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+}
+
+/* Yorum ekleme formu başlığı */
+#add-review h3 {
+  text-align: center;          /* Metni ortala */
+  margin-bottom: 20px;         /* Alt boşluk */
+  color: var(--primary-color); /* Ana renk */
+}
+
+/* Yorum öğesi - Her bir kullanıcı yorumu */
+.review-item {
+  background: white;                      /* Beyaz arkaplan */
+  padding: 20px;                          /* İç boşluk */
+  border-radius: 10px;                    /* Köşe yuvarlatma */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+  margin-bottom: 20px;                    /* Alt boşluk */
+}
+
+/* Yorum başlık alanı - Kullanıcı adı ve tarih */
+.review-header {
+  display: flex;                /* Esnek kutu düzeni */
+  justify-content: space-between; /* İçerikleri iki uca dağıt */
+  margin-bottom: 10px;          /* Alt boşluk */
+}
+
+/* Yorum yapan kullanıcı adı */
+.review-user {
+  font-weight: 500; /* Yarı kalın yazı */
+}
+
+/* Yorum tarihi */
+.review-date {
+  color: var(--dark-gray); /* Koyu gri renk */
+  font-size: 14px;        /* Küçük yazı boyutu */
+}
+
+/* Yorum değerlendirme puanı */
+.review-rating {
+  margin-bottom: 10px; /* Alt boşluk */
+  color: #ffc107;      /* Sarı renk - yıldız rengi */
+}
+
+/* ===============================================
+   GİRİŞ VE KAYIT SAYFASI STİLLERİ (login.html, register.html)
+   =============================================== */
+
+/* Kimlik Doğrulama Formu Bölümü - Giriş ve kayıt formlarını içeren alan */
+#auth-form {
+  padding: 50px 0;                    /* Üst ve alt boşluk */
+  background-color: var(--light-gray); /* Açık gri arkaplan */
+}
+
+/* Form kapsayıcısı - Giriş ve kayıt formları için beyaz kutu */
+.form-container {
+  max-width: 500px;                      /* Maksimum genişlik */
+  margin: 0 auto;                         /* Ortalama */
+  background: white;                      /* Beyaz arkaplan */
+  padding: 30px;                          /* İç boşluk */
+  border-radius: 10px;                    /* Köşe yuvarlatma */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+}
+
+/* Form başlığı */
+.form-container h1 {
+  text-align: center;          /* Metni ortala */
+  margin-bottom: 30px;         /* Alt boşluk */
+  color: var(--primary-color); /* Ana renk */
+}
+
+/* Form alt bilgisi - "Hesabınız yok mu? Kayıt olun" gibi bağlantılar */
+.form-footer {
+  text-align: center; /* Metni ortala */
+  margin-top: 20px;  /* Üst boşluk */
+}
+
+/* Onay kutusu grubu - Kullanım koşulları onayı için */
+.checkbox-group {
+  display: flex;                      /* Esnek kutu düzeni */
+  align-items: flex-start;            /* Üst hizalama */
+  margin-bottom: 20px;                /* Alt boşluk */
+  background-color: var(--light-gray); /* Açık gri arkaplan */
+  padding: 12px 15px;                 /* İç boşluk */
+  border-radius: 5px;                 /* Köşe yuvarlatma */
+  border: 1px solid var(--medium-gray); /* Kenarlık */
+}
+
+/* Onay kutusu */
+.checkbox-group input[type="checkbox"] {
+  margin-right: 10px;              /* Sağ boşluk */
+  margin-top: 3px;                 /* Üst boşluk - metin ile hizalama için */
+  width: 18px;                     /* Genişlik */
+  height: 18px;                    /* Yükseklik */
+  accent-color: var(--primary-color); /* Seçili durumda ana renk */
+}
+
+/* Onay kutusu etiketi */
+.checkbox-group label {
+  font-size: 14px;         /* Küçük yazı boyutu */
+  line-height: 1.5;        /* Satır yüksekliği */
+  color: var(--text-color); /* Metin rengi */
+}
+
+/* Onay kutusu içindeki bağlantılar - Kullanım koşulları, gizlilik politikası vb. */
+.checkbox-group a {
+  color: var(--primary-color); /* Ana renk */
+  font-weight: 500;           /* Yarı kalın yazı */
+  text-decoration: underline; /* Alt çizgi */
+  transition: color 0.2s ease; /* Renk geçişi */
+}
+
+/* Onay kutusu içindeki bağlantılar hover durumu */
+.checkbox-group a:hover {
+  color: #3a5fc0; /* Hover durumunda daha koyu mavi ton */
+}
+
+/* ===============================================
+   PROFİL SAYFASI STİLLERİ (profile.html)
+   =============================================== */
+
+/* Profil Bölümü - Kullanıcı bilgilerini gösteren alan */
+#profile {
+  padding: 50px 0;                    /* Üst ve alt boşluk */
+  background-color: var(--light-gray); /* Açık gri arkaplan */
+}
+
+/* Profil kapsayıcısı */
+.profile-container {
+  max-width: 800px;                      /* Maksimum genişlik */
+  margin: 0 auto;                         /* Ortalama */
+  background: white;                      /* Beyaz arkaplan */
+  padding: 30px;                          /* İç boşluk */
+  border-radius: 10px;                    /* Köşe yuvarlatma */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+}
+
+/* Profil bilgileri - Kullanıcı adı, e-posta vb. */
+.profile-info {
+  text-align: center;  /* Metni ortala */
+  margin-bottom: 30px; /* Alt boşluk */
+}
+
+/* Profil başlığı */
+.profile-info h2 {
+  margin-bottom: 10px;         /* Alt boşluk */
+  color: var(--primary-color); /* Ana renk */
+}
+
+/* Profil Sayfası Avatar Stilleri */
+.avatar-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--primary-color);
+}
+
+.avatar-selection {
+    margin-top: 2rem;
+}
+
+.avatar-selection h3 {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.avatar-option {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.avatar-option:hover {
+    transform: scale(1.1);
+    border-color: var(--primary-color);
+}
+
+.avatar-option.selected {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Katıldığım etkinlikler bölümü */
+#my-events {
+  padding: 50px 0; /* Üst ve alt boşluk */
+}
+
+/* Katıldığım etkinlikler başlığı */
+#my-events h2 {
+  text-align: center;          /* Metni ortala */
+  margin-bottom: 30px;         /* Alt boşluk */
+  color: var(--primary-color); /* Ana renk */
+}
+
+/* Footer Bölümü */
+footer {
+  background-color: #f8f9fa;
+  color: #333;
+  margin-top: 50px;
+  border-top: 1px solid #e9ecef;
+}
+
+.footer-content {
+  padding: 50px 0 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-brand h3 {
+  font-size: 20px;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-brand h3 i {
+  color: var(--accent-color);
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #666;
+  max-width: 280px;
+}
+
+.footer-col h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: #555;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-col ul li a:hover {
+  color: var(--primary-color);
+}
+
+.footer-col ul li a i {
+  width: 16px;
+  color: var(--primary-color);
+  font-size: 13px;
+}
+
+.footer-bottom {
+  background-color: #e9ecef;
+  padding: 15px 0;
+  text-align: center;
+  border-top: 1px solid #dee2e6;
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+  }
+}
+
+/* ===============================================
+   ETKİNLİKLER SAYFASI STİLLERİ (events.html)
+   =============================================== */
+
+/* Öneriler Kutusu - Arama Önerileri - Anlık arama sonuçları */
+.suggestions-container {
+  position: absolute;                  /* Mutlak pozisyon - arama kutusunun altında */
+  width: 100%;                         /* Tam genişlik */
+  max-height: 200px;                   /* Maksimum yükseklik */
+  overflow-y: auto;                    /* Dikey taşma durumunda kaydırma çubuğu */
+  background-color: white;             /* Beyaz arkaplan */
+  border: 1px solid var(--medium-gray); /* Kenarlık */
+  border-top: none;                    /* Üst kenarlık yok - arama kutusuyla birleşmesi için */
+  border-radius: 0 0 5px 5px;          /* Alt köşeleri yuvarlatma */
+  z-index: 10;                         /* Yığın sırası - diğer elementlerin üzerinde görünmesi için */
+  display: none;                       /* Varsayılan olarak gizli */
+}
+
+/* Aktif öneriler kutusu - JavaScript ile aktifleştirildiğinde */
+.suggestions-container.active {
+  display: block; /* Görünür hale getir */
+}
+
+/* Öneri öğesi - Her bir öneri satırı */
+.suggestion-item {
+  padding: 10px;                         /* İç boşluk */
+  cursor: pointer;                       /* İmleç şekli - tıklanabilir göster */
+  transition: background-color 0.2s ease; /* Arkaplan rengi geçişi */
+}
+
+/* Öneri öğesi hover durumu */
+.suggestion-item:hover {
+  background-color: var(--light-gray); /* Hover durumunda açık gri arkaplan */
+}
+
+/* ===============================================
+   YASAL SAYFALAR STİLLERİ (kullanim-kosullari.html, gizlilik-politikasi.html, cerez-politikasi.html)
+   =============================================== */
+
+/* Yasal İçerik Bölümü - Kullanım koşulları, gizlilik politikası ve çerez politikası sayfaları */
+#legal-content {
+  padding: 50px 0; /* Üst ve alt boşluk */
+}
+
+/* Yasal sayfa başlığı */
+#legal-content h1 {
+  color: var(--primary-color); /* Ana renk */
+  margin-bottom: 30px;        /* Alt boşluk */
+  text-align: center;         /* Metni ortala */
+}
+
+/* Yasal metin kapsayıcısı */
+.legal-text {
+  background-color: white;                /* Beyaz arkaplan */
+  padding: 30px;                          /* İç boşluk */
+  border-radius: 10px;                    /* Köşe yuvarlatma */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+  line-height: 1.8;                       /* Satır yüksekliği - okunabilirlik için */
+}
+
+/* Yasal metin alt başlıkları */
+.legal-text h2 {
+  color: var(--primary-color); /* Ana renk */
+  margin: 25px 0 15px;        /* Üst ve alt boşluk */
+}
+
+/* Yasal metin alt başlıkları (3. seviye) */
+.legal-text h3 {
+  color: var(--text-color); /* Metin rengi */
+  margin: 20px 0 10px;     /* Üst ve alt boşluk */
+}
+
+/* Yasal metin paragrafları */
+.legal-text p {
+  margin-bottom: 15px; /* Alt boşluk */
+}
+
+/* Yasal metin madde işaretli listeler */
+.legal-text ul {
+  margin: 15px 0;       /* Üst ve alt boşluk */
+  padding-left: 20px;   /* Sol boşluk - madde işaretleri için */
+  list-style-type: disc; /* Madde işareti tipi - dolu daire */
+}
+
+/* Yasal metin liste öğeleri */
+.legal-text li {
+  margin-bottom: 10px; /* Alt boşluk */
+}
+
+/* ===============================================
+   DUYARLI TASARIM (RESPONSIVE DESIGN) - MOBİL UYUMLULUK
+   =============================================== */
+/* Tablet ve mobil cihazlar için stil düzenlemeleri (768px ve altı) */
+@media (max-width: 768px) {
+  /* Mobil menü - Hamburger menü açıldığında görünen navigasyon */
+  .nav-links {
+    position: fixed;                        /* Sabit pozisyon - sayfada kaydırma yapılsa bile sabit kalır */
+    left: -100%;                            /* Ekranın soluna gizle */
+    top: 70px;                              /* Üst kenardan uzaklık */
+    flex-direction: column;                 /* Dikey düzenleme */
+    background-color: white;                /* Beyaz arkaplan */
+    width: 100%;                            /* Tam genişlik */
+    text-align: center;                     /* Metni ortala */
+    transition: 0.3s;                       /* Geçiş efekti */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+    z-index: 99;                            /* Header (100) altında kalır — hamburger her zaman üstte */
+  }
+
+  /* Mobil logo — flex içinde yer kaplayıp hamburger'ı itmemesi için */
+  .logo {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .logo a {
+    font-size: 1.05rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
+
+  /* Hamburger küçülmesin */
+  .hamburger {
+    flex-shrink: 0;
+  }
+
+  /* Aktif mobil menü - Hamburger menü tıklandığında */
+  .nav-links.active {
+    left: 0; /* Ekranın solundan başlayarak göster */
+  }
+
+  /* Mobil menü öğeleri */
+  .nav-links li {
+    margin: 15px 0; /* Üst ve alt boşluk */
+  }
+
+  /* Hamburger menü ikonu - Mobil görünümde göster */
+  .hamburger {
+    display: block; /* Görünür hale getir */
+  }
+
+  /* Aktif hamburger menü - Orta çubuk */
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0; /* Orta çubuğu gizle - X şekli oluşturmak için */
+  }
+
+  /* Aktif hamburger menü - Üst çubuk */
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg); /* Üst çubuğu döndür - X şeklinin üst kısmı */
+  }
+
+  /* Aktif hamburger menü - Alt çubuk */
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg); /* Alt çubuğu döndür - X şeklinin alt kısmı */
+  }
+
+  /* Mobil hero bölümü - Ana tanıtım alanı */
+  #hero {
+    height: 50vh; /* Yükseklik - ekran yüksekliğinin %50'si (masaaüstünde %60) */
+  }
+
+  /* Mobil hero başlığı */
+  .hero-content h1 {
+    font-size: 2rem; /* Daha küçük yazı boyutu - 32px (masaaüstünde 48px) */
+  }
+
+  /* Mobil etkinlikler grid düzeni */
+  .events-grid {
+    grid-template-columns: 1fr; /* Tek sütun - her etkinlik kartı tam genişlikte */
+  }
+
+  /* Mobil arama ve filtreleme formu */
+  #search-form, #filter-form {
+    grid-template-columns: 1fr; /* Tek sütun - her form alanı tam genişlikte */
+  }
+}
+
+/* Değerlendirme uyarısı için stiller */
+.info-box {
+    background-color: #e7f3fe;
+    border: 1px solid #b9d4f7;
+    color: #0c5460;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.info-box i {
+    margin-right: 8px;
+    color: #4b8edc;
+}
+
+/* Kullanıcı profil fotoğrafı stili */
+.user-profile-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-avatar {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Giriş yapılmış kullanıcı bilgileri stili */
+#user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#user-name {
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 15px;
+    line-height: 35px;
+    vertical-align: middle;
+}
+
+#user-name:hover {
+    color: #007bff;
+}
+
+/* Message box styles */
+.message {
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  display: none;
+}
+
+.message.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+/* Kullanıcı silme butonu */
+.btn-delete-user {
+  background-color: #e74c3c;
+  color: white;
+  margin-left: 5px;
+}
+
+.btn-delete-user:hover {
+  background-color: #c0392b;
+}
+
+/* ─── iPhone 16 Pro ve küçük telefonlar (≤430px / CSS 402px) ─── */
+@media (max-width: 430px) {
+  .container {
+    padding: 0 14px;
+  }
+
+  .nav-links li {
+    margin: 9px 0;
+  }
+
+  #hero {
+    height: 40vh;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+  }
+
+  #search {
+    padding: 22px 0;
+  }
+
+  .search-container {
+    padding: 18px 12px;
+  }
+
+  .events-grid {
+    gap: 16px;
+  }
+
+  .event-image {
+    height: 170px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .footer-grid {
+    gap: 20px;
+  }
+
+  #auth-form .container {
+    padding: 0 10px;
+  }
+
+  #event-detail,
+  #event-participants,
+  #event-reviews {
+    padding: 20px 0;
+  }
+}

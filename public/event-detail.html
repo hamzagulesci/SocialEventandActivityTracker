@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <!-- Sayfa karakter seti ve görünüm ayarları -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sayfa başlığı -->
+    <title>Etkinlik Detayı | Sosyal Etkinlik ve Aktivite Takipçisi</title>
+    <!-- Font Awesome - İkonlar için -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tüm sayfalar için ortak CSS dosyası -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Üst Navigasyon Bölümü -->
+    <div id="header-placeholder"></div>
+
+    <!-- Etkinlik Detay Bölümü -->
+    <section id="event-detail">
+        <div class="container">
+            <div id="event-content">
+                <!-- Etkinlik bilgileri JavaScript ile yüklenecek -->
+                <div class="loading">Etkinlik detayları yükleniyor...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Katılımcılar Bölümü -->
+    <section id="event-participants">
+        <div class="container">
+            <h2>Katılımcılar</h2>
+            <div class="participant-info">
+                <!-- Katılımcı sayısı ve kontenjan bilgisi -->
+                <p id="participant-count">Yükleniyor...</p>
+                <p id="participant-limit">Yükleniyor...</p>
+            </div>
+            <!-- Etkinliğe Katılım Bölümü -->
+            <div id="join-section">
+                <button id="join-btn" class="btn btn-success">Etkinliğe Katıl</button>
+                <p id="join-message" class="hidden"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yorumlar ve Değerlendirmeler Bölümü -->
+    <section id="event-reviews">
+        <div class="container">
+            <h2>Değerlendirmeler</h2>
+            <!-- Ortalama Puan Gösterimi -->
+            <div id="average-rating">
+                <p>Ortalama Puan: <span id="avg-rating">0</span>/5 <span id="rating-stars"></span></p>
+            </div>
+            
+            <!-- Değerlendirme Yapma Formu (Başlangıçta Gizli) -->
+            <div id="add-review" class="hidden">
+                <h3>Değerlendirme Yap</h3>
+                <form id="review-form">
+                    <!-- Puan Seçimi -->
+                    <div class="form-group">
+                        <label for="rating">Puan</label>
+                        <select id="rating" name="rating" required>
+                            <option value="">Seçiniz</option>
+                            <option value="1">1 - Çok Kötü</option>
+                            <option value="2">2 - Kötü</option>
+                            <option value="3">3 - Orta</option>
+                            <option value="4">4 - İyi</option>
+                            <option value="5">5 - Çok İyi</option>
+                        </select>
+                    </div>
+                    <!-- Yorum Yazma Alanı -->
+                    <div class="form-group">
+                        <label for="comment">Yorum</label>
+                        <textarea id="comment" name="comment" required></textarea>
+                    </div>
+                    <!-- Gönderme Butonu -->
+                    <button type="submit" class="btn">Gönder</button>
+                </form>
+            </div>
+            
+            <!-- Değerlendirme Uyarısı -->
+            <div id="review-warning" class="info-box">
+                <i class="fas fa-info-circle"></i> Değerlendirme yapabilmek için etkinliğe katılmış olmanız gerekmektedir. Etkinliğe katıldıktan sonra bu alanda değerlendirme formu görüntülenecektir.
+            </div>
+            
+            <!-- Değerlendirme Listesi -->
+            <div id="reviews-list">
+                <!-- Değerlendirmeler JavaScript ile yüklenecek -->
+                <p id="no-reviews" class="hidden">Henüz değerlendirme yapılmamış.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript Dosyaları -->
+    <script src="js/auth.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/event-detail.js"></script>
+</body>
+</html>

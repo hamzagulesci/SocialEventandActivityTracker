@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <!-- Sayfa karakter seti ve görünüm ayarları -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sayfa başlığı -->
+    <title>Giriş Yap | Sosyal Etkinlik ve Aktivite Takipçisi</title>
+    <!-- Font Awesome - İkonlar için -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tüm sayfalar için ortak CSS dosyası -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Üst Navigasyon Bölümü -->
+    <div id="header-placeholder"></div>
+
+    <!-- Giriş Formu Bölümü -->
+    <section id="auth-form">
+        <div class="container">
+            <div class="form-container">
+                <h1>Giriş Yap</h1>
+                <!-- Hata Mesajı Alanı (Varsayılan olarak gizli) -->
+                <div id="message" class="message hidden"></div>
+                <!-- Giriş Formu -->
+                <form id="login-form">
+                    <!-- Email Alanı -->
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="ornek@mail.com">
+                    </div>
+                    
+                    <!-- Şifre Alanı -->
+                    <div class="form-group">
+                        <label for="password">Şifre</label>
+                        <div class="password-input-container">
+                            <input type="password" id="password" name="password" required placeholder="Şifrenizi girin">
+                            <button type="button" class="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Giriş Butonu -->
+                    <button type="submit" class="btn btn-primary btn-block">Giriş Yap</button>
+                </form>
+                <!-- Kayıt Ol Yönlendirmesi -->
+                <p class="form-footer">
+                    Hesabınız yok mu? <a href="register.html">Kayıt Olun</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript Dosyaları -->
+    <script src="js/auth.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/password-toggle.js"></script>
+</body>
+</html>

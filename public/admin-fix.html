@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Yetkisi Düzeltme</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .warning {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .info {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Yetkisi Düzeltme</h1>
+    
+    <p>Bu sayfa, admin yetkinizin düzgün çalışmaması durumunda LocalStorage'daki kullanıcı bilgilerinizi düzeltmenizi sağlar.</p>
+    
+    <div id="user-info">
+        <p>Kullanıcı bilgisi yükleniyor...</p>
+    </div>
+    
+    <h2>Yapılacaklar:</h2>
+    <ol>
+        <li>Önce sisteme giriş yaptığınızdan emin olun</li>
+        <li>Aşağıdaki butonu kullanarak kullanıcı bilgilerinizi güncelleyin</li>
+        <li>Güncelleme tamamlandıktan sonra admin sayfasına tekrar erişmeyi deneyin</li>
+    </ol>
+    
+    <button id="fix-admin" class="button">Admin Yetkilerini Düzelt</button>
+    <a href="admin.html" class="button">Admin Sayfasına Git</a>
+    
+    <script>
+        // Kullanıcı bilgilerini göster
+        function showUserInfo() {
+            const userInfoDiv = document.getElementById('user-info');
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+            
+            if (!user || !user.name) {
+                userInfoDiv.innerHTML = `
+                    <p class="warning">Kullanıcı bilgisi bulunamadı. Lütfen önce giriş yapın.</p>
+                `;
+                return;
+            }
+            
+            userInfoDiv.innerHTML = `
+                <h3>Mevcut Kullanıcı Bilgileri:</h3>
+                <p><strong>Ad:</strong> ${user.name}</p>
+                <p><strong>E-posta:</strong> ${user.email}</p>
+                <p><strong>Admin Yetkisi:</strong> <span class="${user.isAdmin === 1 ? 'info' : 'warning'}">${user.isAdmin === 1 ? 'Evet (1)' : 'Hayır veya Tanımsız (' + user.isAdmin + ')'}</span></p>
+            `;
+        }
+        
+        // Admin yetkisini düzelt
+        function fixAdminPermission() {
+            const userDataRaw = localStorage.getItem('user');
+            
+            if (!userDataRaw) {
+                alert('Kullanıcı bilgisi bulunamadı. Lütfen önce giriş yapın.');
+                return;
+            }
+            
+            try {
+                // User verisini parse et
+                const userData = JSON.parse(userDataRaw);
+                
+                // isAdmin değerini 1 olarak ayarla
+                userData.isAdmin = 1;
+                
+                // Güncellenmiş veriyi localStorage'a kaydet
+                localStorage.setItem('user', JSON.stringify(userData));
+                
+                alert('Admin yetkiniz 1 olarak güncellendi!');
+                
+                // Kullanıcı bilgilerini yenile
+                showUserInfo();
+                
+            } catch (error) {
+                console.error('Hata oluştu:', error);
+                alert('Bir hata oluştu: ' + error.message);
+            }
+        }
+        
+        // Sayfa yüklendiğinde kullanıcı bilgilerini göster
+        document.addEventListener('DOMContentLoaded', showUserInfo);
+        
+        // Düzeltme butonuna tıklandığında
+        document.getElementById('fix-admin').addEventListener('click', fixAdminPermission);
+    </script>
+</body>
+</html> 
