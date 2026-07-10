@@ -1,5 +1,0 @@
- Şimdi projenin her dosyasını tek tek tarayacaksın. Neyin ne olduğunun tamamını her şeyi her dosyayı tek tek
-  tarayacaksın. @README.md dosyasını çok aşırı detaylı ve anlaşılır dilde düzenleyeceksin. Bu projeyi ben githuba
-  yükleyeceğim. Projenin adını değişeceğim zaten ingilizce olarak. Social Event and Activity Tracker olarak. O yüzden
-  ingilizce bir şekilde README.md dosyasını hazırlayacaksın ne yaptığını falan anlatıcaksın. TRREADME.md dosyası
-  oluştur bide README.md dosytasının türkçesi olsun.
